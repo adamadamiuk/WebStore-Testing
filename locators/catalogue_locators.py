@@ -1,0 +1,15 @@
+class CatalogueLocators:
+    FILTER = 'a.mobile-filter:nth-child(3)'
+    FILTER_PRODUCTS = '#woocommerce_price_filter-2 > form > div > div.price_slider_amount > button'
+    LEFT_SLIDER = '#woocommerce_price_filter-2 > form > div > div.price_slider.ui-slider.ui-corner-all.ui-slider-horizontal.ui-widget.ui-widget-content > span:nth-child(2)'
+    RIGHT_SLIDER = '#woocommerce_price_filter-2 > form > div > div.price_slider.ui-slider.ui-corner-all.ui-slider-horizontal.ui-widget.ui-widget-content > span:nth-child(3)'
+    MIN_AMOUNT = '#woocommerce_layered_nav_filters-3 > ul > li:nth-child(1) > a > span > bdi'
+    MAX_AMOUNT = '#woocommerce_layered_nav_filters-3 > ul > li:nth-child(2) > a > span > bdi'
+    SEARCH = '#woocommerce-product-search-field-0'
+    PRODUCT = '#main > div.columns-5 > ul > li.product.type-product > div.woocommerce-card__header'
+    PAGER = '#main > div.columns-5 > div > p'
+    ADD_BASKET = '#main > div.columns-5 > ul > li.product.type-product > div.woocommerce-card__header > a'
+    NAME = '#main > div.columns-5 > ul > li.product.type-product > div.woocommerce-card__header > div.woocommerce-loop-product__title > a'
+    REMOVE_ITEM = '#page > div.shoptimizer-mini-cart-wrap > div.widget.woocommerce.widget_shopping_cart > div > ul > li:nth-child(1) > a.remove.remove_from_cart_button'
+    SEARCH_COMPL = '#content > div > div.archive-header > div > div.rankmath.woocommerce-breadcrumb > nav > p > span'
+
