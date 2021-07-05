@@ -13,3 +13,4 @@ For testing the logging function there is a user name and the password required 
 - Behave 1.2.6
 - Gherkin
 - PyCharm 2021.1.2
+- Chromedriver v.90
