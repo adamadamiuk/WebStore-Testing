@@ -14,7 +14,7 @@ For testing the logging function there is a user name and the password required 
 - Gherkin
 - PyCharm 2021.1.2
 - Chromedriver v.90
-
+&nbsp  
 
 
 Last update: July 2021
