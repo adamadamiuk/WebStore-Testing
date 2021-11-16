@@ -6,7 +6,7 @@ The purpose of the code is to automate the webstore page using Selenium and perf
 In **Tests** you can find both Gherkin scenarios and the implementation.
 For testing the logging function there is a user name and the password required to paste into the code in **test_login_page.py** file.
 
-# Project has been created and run with:
+# Project has been created and ran with:
 
 - Python 3.9
 - Selenium 3.141
