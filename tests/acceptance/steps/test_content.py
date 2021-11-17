@@ -12,6 +12,7 @@ Testing the content of the main page
 @given('User is on the home page')
 def step_impl(context):
     context.driver = webdriver.Chrome(executable_path=chromedriver)
+    context.driver.delete_all_cookies()
     context.driver.maximize_window()
     page = HomePage(context.driver)
     context.driver.get(page.url)

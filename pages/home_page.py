@@ -52,22 +52,22 @@ class HomePage(BasePage):
 
     def store_page(self):
         store_button = self.driver.find_element_by_css_selector(
-            HomePageLocators.STORE_BUTTON
+            HomePageLocators.MENS_WATCHES_SELECT
         )
         action = ActionChains(self.driver)
         action.move_to_element(store_button).perform()
-    # hovering over "Store" button
+    # hovering over "Men's watches" button
 
     def mens_watches(self):
         action = ActionChains(self.driver)
         store_button = self.driver.find_element_by_css_selector(
-            HomePageLocators.STORE_BUTTON
+            HomePageLocators.MENS_WATCHES_SELECT
         )
         mens_watches = self.driver.find_element_by_css_selector(
-            HomePageLocators.MENS_WATCHES
+            HomePageLocators.WATCHES_PASEK
         )
         action.move_to_element(store_button).perform()
         action.move_to_element(mens_watches).perform()
         action.move_to_element(mens_watches).click().perform()
-    # moving the cursor to Man's Watches button and clicking it
+    # moving the cursor to the category button and clicking it
 

@@ -9,6 +9,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
+from locators.home_locators import HomePageLocators
 from pages.base_page import BasePage
 from locators.catalogue_locators import CatalogueLocators
 
@@ -23,11 +24,13 @@ class StorePage(BasePage):
         return super(StorePage, self).url + '/zegarki-meskie/'
     # setting up the main store page
 
-    @property
+
     def show_filters(self):
-        return self.driver.find_element_by_css_selector(
+        filter_menu = self.driver.find_element_by_css_selector(
             CatalogueLocators.FILTER
         )
+        ActionChains(self.driver).move_to_element(filter_menu).click(filter_menu).perform()
+        time.sleep(2)
     # opening the filters panel
 
     def move_filter_slider(self):
@@ -50,9 +53,9 @@ class StorePage(BasePage):
 
         move = ActionChains(self.driver)
 
-        move.click_and_hold(right_slider).move_by_offset(-15, 0).release()
+        move.click_and_hold(right_slider).move_by_offset(-60, 0).release()
         time.sleep(2)
-        move.click_and_hold(left_slider).move_by_offset(185, 0).release().perform()
+        move.click_and_hold(left_slider).move_by_offset(145, 0).release().perform()
         StorePage(self.driver).apply_filter.click()
         # setting up the filter to desired values
 
@@ -108,34 +111,35 @@ class StorePage(BasePage):
         try:
             WebDriverWait(self.driver, 6).until(
                 EC.visibility_of_element_located((
-                    By.CSS_SELECTOR, CatalogueLocators.SEARCH_COMPL
+                    By.XPATH, CatalogueLocators.SEARCH_COMPL
                 )))
             search_result = self.driver.find_element_by_css_selector(
-                CatalogueLocators.SEARCH_COMPL
+                CatalogueLocators.SEARCH_RES
             )
-            assert search_result.text == f'Wyniki dla {load}'
+            pattern_search = 'Wyniki dla smartwatch'
+            assert (re.search(pattern_search, search_result.text)).group(0) == pattern_search
         except:
             raise NoSuchElementException('Failed to present the result of the search.')
     # awaiting for the list of products to load and appropriate message to be displayed
 
     def search_results(self, load):
-        pattern = f'(.*)({load})(.*)'
+        pattern = f'{load}'
         prods = self.driver.find_elements_by_class_name('woocommerce-loop-product__title')
         for elem in prods:
             res = (str(elem.text)).lower()
             word = re.search(pattern, res)
-            assert word.group(2) == f'{load}'
+            assert word.group(0).lower() == f'{load}'
     # verifying if all results have the keyword in the name
 
 
     def count_page(self):
-        pattern = '(Wyświetlanie 1–40 z )([0-9]+)( wyników)'
+        pattern = '(Wyświetlanie 1–50 z )([0-9]+)( wyników)'
         items_num = self.driver.find_element_by_css_selector(
             CatalogueLocators.PAGER
         ).text
         match = (re.search(pattern, items_num)).group(2)
 
-        counted = math.ceil(int(match) / 40)
+        counted = math.ceil(int(match) / 50)
         if counted == 0:
             return 1
         else:
@@ -159,6 +163,13 @@ class StorePage(BasePage):
     # adding to the basket
 
     def remove_basket(self):
+        try:
+            self.driver.find_element_by_css_selector(
+                HomePageLocators.BASKET
+            ).click()
+        except:
+            pass
+        time.sleep(1)
         remove = self.driver.find_element_by_css_selector(
             CatalogueLocators.REMOVE_ITEM
         )

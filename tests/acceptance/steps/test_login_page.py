@@ -24,8 +24,8 @@ def step_impl(context):
 
 @step('User types in login and password')
 def step_impl(context):
-    user_name = "login"
-    password = "password"
+    user_name = "test_user01"
+    password = "pass123selenium!"
 
     page_log = LoginPage(context.driver)
     page_log.user_data(user_name, password)

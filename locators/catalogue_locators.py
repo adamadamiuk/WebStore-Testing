@@ -1,5 +1,5 @@
 class CatalogueLocators:
-    FILTER = 'a.mobile-filter:nth-child(3)'
+    FILTER = '#main > a'
     FILTER_PRODUCTS = '#woocommerce_price_filter-2 > form > div > div.price_slider_amount > button'
     LEFT_SLIDER = '#woocommerce_price_filter-2 > form > div > div.price_slider.ui-slider.ui-corner-all.ui-slider-horizontal.ui-widget.ui-widget-content > span:nth-child(2)'
     RIGHT_SLIDER = '#woocommerce_price_filter-2 > form > div > div.price_slider.ui-slider.ui-corner-all.ui-slider-horizontal.ui-widget.ui-widget-content > span:nth-child(3)'
@@ -10,6 +10,7 @@ class CatalogueLocators:
     PAGER = '#main > div.columns-5 > div > p'
     ADD_BASKET = '#main > div.columns-5 > ul > li.product.type-product > div.woocommerce-card__header > a'
     NAME = '#main > div.columns-5 > ul > li.product.type-product > div.woocommerce-card__header > div.woocommerce-loop-product__title > a'
-    REMOVE_ITEM = '#page > div.shoptimizer-mini-cart-wrap > div.widget.woocommerce.widget_shopping_cart > div > ul > li:nth-child(1) > a.remove.remove_from_cart_button'
-    SEARCH_COMPL = '#content > div > div.archive-header > div > div.rankmath.woocommerce-breadcrumb > nav > p > span'
+    REMOVE_ITEM = '#page > div.shoptimizer-mini-cart-wrap > div.widget.woocommerce.widget_shopping_cart > div > ul > li > a.remove.remove_from_cart_button'
+    SEARCH_COMPL = '//*[@id="main"]/div[1]/p'
+    SEARCH_RES = '#content > div > div.archive-header > div > div.rankmath.woocommerce-breadcrumb > nav'
 

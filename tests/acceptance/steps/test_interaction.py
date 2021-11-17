@@ -42,7 +42,7 @@ def step_impl(context):
 
 @when('"Show filters" is selected')
 def step_impl(context):
-    StorePage(context.driver).show_filters.click()
+    StorePage(context.driver).show_filters()
 
 
 @step('Price range 370 - 420 is selected')
