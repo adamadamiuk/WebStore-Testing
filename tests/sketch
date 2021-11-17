@@ -1,8 +1,0 @@
-Scenario: Filtering the product catalogue by price
-Given: User is in the catalogue of products
-When: User click on the filter button
-Then: A side-bar with filter options appears
-When: User selects price range 300 - 350
-And Presses "Filter"
-Then Items in correct price range are displayed
-
